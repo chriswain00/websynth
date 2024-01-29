@@ -1,0 +1,2126 @@
+<!DOCTYPE html>
+
+<head>
+  <title>Synth</title>
+  <link rel="StyleSheet" href="CSS Final.css" type="text/css">
+  <script src="input-knobs.js"></script>
+</head>
+
+<body>
+    <h2 class = synthtitle> THE BIG DOG &#129312	</h2>
+
+    <a href="coding flowchart.html" class = "links">Coding Flowchart</a> 
+    <a href="audio flowchart.html" class = "links">Audio Flowchart</a> 
+    <a href="user manual.html" class = "links">User Manual</a> 
+<table class = "synthtable">
+  <tr> <!-- Title row -->
+    <td>
+
+    </td>
+    <td>
+
+    </td>
+    <td>
+      <h1> ADSR </h1>
+    </td>
+    <td>
+      <h1> Filter </h1>
+    </td>
+    <td>
+      <h1> LFO </h1>
+    </td>
+    <td>
+      <h1> Global FX </h1>
+    </td>
+  </tr>
+  <tr><!-- Osc 1 row -->
+    <td>
+        <h1> Osc 1 </h1>
+    </td>
+    <td class = "section"> <!-- Osc 1 Basic Controls -->
+      <label for="Volume1">Volume</label>
+      <input name="Volume1" type="range" onchange="Vol1()" id="OscVol1" value = "100"> <button onclick="Mute1()" type="button" id = "MuteBtn1">Mute</button> <br>
+
+      <label for="pan1">Pan   </label>
+      <input name="pan1" type="range" min="-10" max="10" value = "0" onchange="pan1()" id="Oscpan1" class="input-knob"><br>
+
+      <button onclick="Sin1()" type="button" id ="sin1">Sine</button><br>
+	    <button onclick="Square1()" type="button" id ="squ1">Square</button><br>
+	    <button onclick="Triangle1()" type="button" id ="tri1">Triangle</button><br>
+      <button onclick="Sawtooth1()" type="button" id ="saw1">Sawtooth</button><br>
+
+      <label for="Detune1">Detune</label>
+      <input name="Detune1" type="range" min="-100"  max="100" value = "0" onchange="Detune1()" id="OscDetune1" class="input-knob"><br>
+
+      <p class = "FXtitle"> Vibrato </p>
+    
+      <label for="viblfofreq1">VibFreq</label>
+      <input name="viblfofreq1" type="range" min="0" max="100" value = "0" onchange="viblfofreq1()" id="Oscviblfofreq1" class="input-knob">
+      <label for="viblfoamplitude1">VibDepth</label>
+      <input name="viblfoamplitude1" type="range" min="0" max="100" value = "0" onchange="viblfoamplitude1()" id="Oscviblfoamplitude1" class="input-knob"><br>
+      <label for="vibmax1">VibMax</label>
+      <input name="vibmax1" type="range" min="0" max="100" value = "0" onchange="vibmax1()" id="Oscvibmax1" class="input-knob">
+      <label for="vibmin1">VibMin</label>
+      <input name="vibmin1" type="range" min="-100" max="0" value = "-100" onchange="vibmin1()" id="Oscvibmin1" class="input-knob"><br>
+
+    </td>
+    <td class = "section"> <!-- Osc 1 ADSR -->
+        <h1 style = "font-size: medium;" class = "LFOtitle"> Amplitude Envelope</h1>
+
+        <label for="Attack1">Attack</label>
+        <input name="Attack1" type="range" min="0"  max="200" value = "20" onchange="Attack1()" id="OscAttack1" class="input-knob"> <br>
+        <label for="Decay1">Decay</label>
+        <input name="Decay1" type="range" min="0"  max="200" value = "100" onchange="Decay1()" id="OscDecay1" class="input-knob"> <br>
+        <label for="Sustain1">Sustain</label>
+        <input name="Sustain1" type="range" min="0"  max="100" value = "100" onchange="Sustain1()" id="OscSustain1" class="input-knob"> <br>
+        <label for="Release1">Release</label>
+        <input name="Release1" type="range" min="0"  max="500" value = "200" onchange="Release1()" id="OscRelease1" class="input-knob"> <br>
+
+        <h1 style = "font-size: medium;" class = "LFOtitle"> Frequency Envelope</h1>
+      
+        <label for="freqenvattack1">freqenvattack</label>
+        <input name="freqenvattack1" type="range" min="0" max="200" value = "20" onchange="freqenvattack1()" id="Oscfreqenvattack1" class="input-knob"><br>
+        <label for="freqenvdecay1">freqenvdecay</label>
+        <input name="freqenvdecay1" type="range" min="0" max="200" value = "100" onchange="freqenvdecay1()" id="Oscfreqenvdecay1" class="input-knob"><br>
+        <label for="freqenvsustain1">freqenvsustain</label>
+        <input name="freqenvsustain1" type="range" min="0" max="100" value = "50" onchange="freqenvsustain1()" id="Oscfreqenvsustain1" class="input-knob"><br>
+        <label for="freqenvrelease1">freqenvrelease</label>
+        <input name="freqenvrelease1" type="range" min="0" max="500" value = "50" onchange="freqenvrelease1()" id="Oscfreqenvrelease1" class="input-knob"><br>
+        <label for="freqenvmax1">envfiltercutoff</label>
+        <input name="freqenvmax1" type="range" min="0" max="20000" value = "20000" onchange="freqenvmax1()" id="Oscfreqenvmax1"><br>
+    </td>
+    <td class = "section"> <!-- Osc 1 Filter -->
+        <label for="filter1CutOff">FilterCutOff</label> 
+        <input name="filter1CutOff" type="range" min="20" max="2000" value = "20" onchange="Filter1CutOff()" id="OscFilterCutOff1"><br>
+
+        <button onclick="HighPass1()" type="button" id = "HP1">HighPass</button> 
+        <button onclick="LowPass1()" type="button" id = "LP1">LowPass</button> <br>
+        <button onclick="BandPass1()" type="button" id = "BP1">BandPass</button> 
+        <button onclick="HighShelf1()" type="button" id = "HS1">HighShelf</button> <br>
+        <button onclick="LowShelf1()" type="button" id = "LS1">LowShelf</button> 
+        <button onclick="Notch1()" type="button" id = "N1">Notch</button> <br>
+        <button onclick="Bypass1()" type="button" id = "AP1" >Bypass</button> <br>
+
+    </td>
+    <td class = "section"> <!-- Osc 1 LFO --> 
+      <label for="filterlfocutoff1">Filter LFO cutoff</label> 
+      <input name="filterlfocutoff1" type="range" min="0" max="20000" value = "0" onchange="filterlfocutoff1()" id="Oscfilterlfocutoff1"> <br>
+      <label for="lfofreq1">lfofreq</label>
+      <input name="lfofreq1" type="range" min="0" max="100" value = "0" onchange="lfofreq1()" id="Osclfofreq1" class="input-knob"><br>
+      <label for="lfoamplitude1">lfoamplitude</label>
+      <input name="lfoamplitude1" type="range" min="0" max="95" value = "0" onchange="lfoamplitude1()" id="Osclfoamplitude1" class="input-knob"><br>
+      <label for="lfophase1">lfophase</label>
+      <input name="lfophase1" type="range" min="0" max="360" value = "0" onchange="lfophase1()" id="Osclfophase1" class="input-knob"><br>
+
+      <label for="filtermodcutoff1">filtermodcutoff</label>
+      <input name="filtermodcutoff1" type="range" min="0" max="20000" value = "0" onchange="filtermodcutoff1()"   id="Oscfiltermodcutoff1"><br>
+      <label for="modlfofreq1">ModLfoFreq</label>
+      <input name="modlfofreq1" type="range" min="0" max="100" value = "0" onchange="modlfofreq1()" id="Oscmodlfofreq1" class="input-knob"><br>
+      <label for="modlfoamplitude1">modlfoamplitude</label>
+      <input name="modlfoamplitude1" type="range" min="0" max="100" value = "0" onchange="modlfoamplitude1()" id="Oscmodlfoamplitude1" class="input-knob"><br>
+      <label for="modlfophase1">modlfophase</label>
+      <input name="modlfophase1" type="range" min="0" max="360" value = "0" onchange="modlfophase1()" id="Oscmodlfophase1" class="input-knob"><br>
+    </td>
+    <td rowspan="3" class = "section"> <!-- Global FX A  -->
+
+      <p class = "FXtitle"> Distortion <button onclick="Distortion1Bypass()" type="button" id="OscDistortion1Bypass" >Bypass</button></p>
+
+      <label for="Distortion1">Distortion</label>
+      <input name="Distortion1" type="range" min="0" max="100" value = "0" onchange="Distortion1()" id="OscDistortion1" class="input-knob"> <br>
+      <label for="DistortionWet1">DistortionWet</label>
+      <input name="DistortionWet1" type="range" min="0" max="100" value = "100" onchange="DistortionWet1()" id="OscDistortionWet1" class="input-knob"><br>
+      
+      <p class = "FXtitle"> Chebyshev <button onclick="ChebyshevBypass()" type="button" id="BypassChebyshevBtn" >Bypass</button></p>
+
+      <label for="ChebyshevOrder1">ChebyshevSound</label>
+      <input name="ChebyshevOrder1" type="range" min="1" max="100" value = "1" onchange="ChebyshevOrder1()" id="OscChebyshevOrder1" class="input-knob"><br>
+      <label for="ChebyshevWet1">ChebyshevWet</label>
+      <input name="ChebyshevWet" type="range" min="0" max="100" value = "100" onchange="ChebyshevWet1()" id="OscChebyshevWet1" class="input-knob"><br>
+      
+      <p class = "FXtitle"> Chorus <button onclick="ChorusBypass()" type="button" id="BypassChorusBtn" >Bypass</button> </p>
+
+      <label for="ChorusDepth1">ChorusDepth</label>
+      <input name="ChorusDepth1" type="range" min="0" max="100" value = "50" onchange="ChorusDepth1()" id="OscChorusDepth1" class="input-knob">
+      <label for="ChorusDelay1">ChorusDelay</label>
+      <input name="ChorusDelay1" type="range" min="2" max="20" value = "11" onchange="ChorusDelay1()" id="OscChorusDelay1" class="input-knob"><br>
+      <label for="ChorusFreq1">ChorusFreq</label>
+      <input name="ChorusFreq1" type="range" min="0" max="100" value = "0" onchange="ChorusFreq1()" id="OscChorusFreq1" class="input-knob">
+      <label for="ChorusWet1">ChorusWet</label>
+      <input name="ChorusWet1" type="range" min="0" max="100" value = "100" onchange="ChorusWet1()" id="OscChorusWet1" class="input-knob"><br>
+      <label for="ChorusFeedback1">ChorusFeedback</label>
+      <input name="ChorusFeedback1" type="range" min="0" max="100" value = "0" onchange="ChorusFeedback1()" id="OscChorusFeedback1" class="input-knob">
+      <label for="ChorusSpread1">ChorusSpread</label>
+      <input name="ChorusSpread1" type="range" min="0" max="180" value = "0" onchange="ChorusSpread1()" id="OscChorusFeedback1" class="input-knob"><br>
+      
+      <p class = "FXtitle"> Tremolo <button onclick="TremoloBypass()" type="button" id="BypassTremoloBtn" >Bypass</button></p>
+
+      <label for="TremoloDepth1">TremDepth</label>
+      <input name="TremoloDepth1" type="range" min="0" max="100" value = "50" onchange="TremoloDepth1()" id="OscTremoloDepth1" class="input-knob"><br>
+      <label for="TremoloFreq1">TremFreq</label>
+      <input name="TremoloFreq1" type="range" min="0" max="100" value = "0" onchange="TremoloFreq1()" id="OscTremoloFreq1" class="input-knob"><br>
+      <label for="TremoloWet1">TremWet</label>
+      <input name="TremoloWet1" type="range" min="0" max="100" value = "100" onchange="TremoloWet1()" id="OscTremoloWet1" class="input-knob"><br>
+    
+      <p class = "FXtitle"> Phaser <button onclick="PhaserBypass()" type="button" id="BypassPhaserBtn" >Bypass</button></p>
+
+      <label for="PhaserFreq1">PhaserFreq</label> 
+      <input name="PhaserFreq1" type="range" min="0" max="100" value = "0" onchange="PhaserFreq1()" id="OscPhaserFreq1" class="input-knob">
+      <label for="PhaserRange1">PhaserRange</label>
+      <input name="PhaserRange1" type="range" min="0" max="5" value = "0" onchange="PhaserRange1()" id="OscPhaserRange1" class="input-knob"><br>
+      <label for="PhaserBaseFreq1">PhaserBaseFreq</label>
+      <input name="PhaserBaseFreq1" type="range" min="0" max="10000" value = "0" onchange="PhaserBaseFreq1()" id="OscPhaserBaseFreq1" class="input-knob">
+      <label for="PhaserWet1">PhaserWet</label>
+      <input name="PhaserWet1" type="range" min="0" max="100" value = "100" onchange="PhaserWet1()" id="OscPhaserWet1" class="input-knob"><br>
+      
+      <p class = "FXtitle"> Reverb <button onclick="ReverbBypass()" type="button" id="BypassReverbBtn" >Bypass</button> </p>
+
+      <label for="ReverbDecay1">ReverbDecay</label>
+      <input name="ReverbDecay1" type="range" min="0" max="500" value = "0" onchange="ReverbDecay1()" id="OscReverbDecay1" class="input-knob"><br>
+      <label for="ReverbWet1">ReverbWet</label>
+      <input name="ReverbWet1" type="range" min="0" max="100" value = "100" onchange="ReverbWet1()" id="OscReverbWet1" class="input-knob">
+      
+      <p class = "FXtitle"> Delay <button onclick="DelayBypass()" type="button" id="BypassDelayBtn" >Delay Bypass</button></p>
+
+      <label for="DelayTime1">DelayTime</label>
+      <input name="DelayTime1" type="range" min="0" max="500" value = "0" onchange="DelayTime1()" id="OscDelayTime1" class="input-knob"><br>
+      <label for="DelayFeedback1">DelayFeedback</label>
+      <input name="DelayFeedback1" type="range" min="0" max="100" value = "0" onchange="DelayFeedback1()" id="OscDelayFeedback1" class="input-knob"><br>
+      <label for="DelayWet1">DelayWet</label>
+      <input name="DelayWet1" type="range" min="0" max="100" value = "100" onchange="DelayWet1()" id="OscDelayWet1" class="input-knob"><br>
+      
+    </td>
+  </tr>
+  <tr> <!-- Osc 2 row -->
+    <td>
+        <h1> Osc 2 </h1>
+    </td>
+    <td class = "section"> <!-- Osc 2 Basic Controls -->
+        <label for="Volume2">Volume</label>
+        <input name="Volume2" type = "range" onchange = "Vol2()" id = "OscVol2" value = "100"> <button onclick="Mute2()" type="button" id="MuteBtn2">Mute</button> <br>
+
+        <label for="pan2">Pan   </label>
+        <input name="pan2" type="range" min="-10" max="10" value = "0" onchange="pan2()" id="Oscpan2" class="input-knob"><br>
+
+        <button onclick="Sin2()" type="button" id ="sin2">Sine</button><br>
+	      <button onclick="Square2()" type="button" id ="squ2">Square</button><br>
+	      <button onclick="Triangle2()" type="button" id ="tri2">Triangle</button><br>
+        <button onclick="Sawtooth2()" type="button" id ="saw2">Sawtooth</button><br>
+        
+
+        <label for="Detune2">Detune</label>
+        <input name="Detune2" type="range" min="-100"  max="100" value = "0" onchange="Detune2()" id="OscDetune2" class="input-knob"><br>
+
+        <p class = "FXtitle"> Vibrato </p>
+    
+        <label for="viblfofreq2">VibFreq</label>
+        <input name="viblfofreq2" type="range" min="0" max="100" value = "0" onchange="viblfofreq2()" id="Oscviblfofreq2" class="input-knob">
+        <label for="viblfoamplitude2">VibDepth</label>
+        <input name="viblfoamplitude2" type="range" min="0" max="100"  value = "0"onchange="viblfoamplitude2()" id="Oscviblfoamplitude2" class="input-knob"><br>
+        <label for="vibmax2">VibMax</label>
+        <input name="vibmax2" type="range" min="0" max="100" value = "0" onchange="vibmax2()" id="Oscvibmax2" class="input-knob">
+        <label for="vibmin2">VibMin</label>
+        <input name="vibmin2" type="range" min="-100" max="0" value = "-100" onchange="vibmin2()" id="Oscvibmin2" class="input-knob"><br>
+    </td>
+    <td class = "section"> <!-- Osc 2 ADSR-->
+        <h1 style = "font-size: medium;" class = "LFOtitle"> Amplitude Envelope</h1>
+
+        <label for="Attack2">Attack</label>
+        <input name="Attack2" type="range" min="0"  max="200" value = "20" onchange="Attack2()" id="OscAttack2" class="input-knob"> <br>
+        <label for="Decay2">Decay</label>
+        <input name="Decay2" type="range" min="0"  max="200" value = "100" onchange="Decay2()" id="OscDecay2" class="input-knob"> <br>
+        <label for="Sustain2">Sustain</label>
+        <input name="Sustain2" type="range" min="0"  max="100" value = "100" onchange="Sustain2()" id="OscSustain2" class="input-knob"> <br>
+        <label for="Release2">Release</label>
+        <input name="Release2" type="range" min="0"  max="500" value = "200" onchange="Release2()" id="OscRelease2" class="input-knob"> <br>
+
+        <h1 style = "font-size: medium;" class = "LFOtitle"> Frequency Envelope</h1>
+      
+        <label for="freqenvattack2">freqenvattack</label>
+        <input name="freqenvattack2" type="range" min="0" max="200" value = "20" onchange="freqenvattack2()" id="Oscfreqenvattack2" class="input-knob"><br>
+        <label for="freqenvdecay2">freqenvdecay</label>
+        <input name="freqenvdecay2" type="range" min="0" max="200" value = "100" onchange="freqenvdecay2()" id="Oscfreqenvdecay2" class="input-knob"><br>
+        <label for="freqenvsustain2">freqenvsustain</label>
+        <input name="freqenvsustain2" type="range" min="0" max="100" value = "50" onchange="freqenvsustain2()" id="Oscfreqenvsustain2" class="input-knob"><br>
+        <label for="freqenvrelease2">freqenvrelease</label>
+        <input name="freqenvrelease2" type="range" min="0" max="500" value = "50" onchange="freqenvrelease2()" id="Oscfreqenvrelease2" class="input-knob"><br>
+        <label for="freqenvmax2">envfiltercutoff</label>
+        <input name="freqenvmax2" type="range" min="0" max="20000" value = "20000" onchange="freqenvmax2()" id="Oscfreqenvmax2"><br>
+    </td>
+    <td class = "section"> <!-- Osc 2 Filter-->
+        <label for="filter2CutOff">FilterCutOff</label> 
+        <input name="filter2CutOff" type="range" min="20" max="2000" value = "20" onchange="Filter2CutOff()" id="OscFilterCutOff2"><br>
+
+        <button onclick="HighPass2()" type="button" id = "HP2">HighPass</button>
+        <button onclick="LowPass2()" type="button" id = "LP2">LowPass</button> <br>
+        <button onclick="BandPass2()" type="button" id = "BP2">BandPass</button>
+        <button onclick="HighShelf2()" type="button" id = "HS2">HighShelf</button> <br>
+        <button onclick="LowShelf2()" type="button" id = "LS2">LowShelf</button>
+        <button onclick="Notch2()" type="button" id = "N2">Notch</button> <br>
+        <button onclick="Bypass2()" type="button" id = "AP2">Bypass</button>
+    </td>
+    <td class = "section"> <!-- Osc 2 LFO --> 
+      <label for="filterlfocutoff2">Filter LFO cutoff</label> 
+      <input name="filterlfocutoff2" type="range" min="0" max="20000" value = "0" onchange="filterlfocutoff2()" id="Oscfilterlfocutoff2"> <br>
+      <label for="lfofreq2">lfofreq</label>
+      <input name="lfofreq2" type="range" min="0" max="100" value = "0" onchange="lfofreq2()" id="Osclfofreq2" class="input-knob"><br>
+      <label for="lfoamplitude2">lfoamplitude</label>
+      <input name="lfoamplitude2" type="range" min="0" max="95" value = "0" onchange="lfoamplitude2()" id="Osclfoamplitude2" class="input-knob"><br>
+      <label for="lfophase2">lfophase</label>
+      <input name="lfophase2" type="range" min="0" max="360" value = "0" onchange="lfophase2()" id="Osclfophase2" class="input-knob"><br>
+
+      <label for="filtermodcutoff2">filtermodcutoff</label>
+      <input name="filtermodcutoff2" type="range" min="0" max="20000" value = "0" onchange="filtermodcutoff2()"   id="Oscfiltermodcutoff2"><br>
+      <label for="modlfofreq2">ModLfoFreq</label>
+      <input name="modlfofreq2" type="range" min="0" max="100" value = "0" onchange="modlfofreq2()" id="Oscmodlfofreq2" class="input-knob"><br>
+      <label for="modlfoamplitude2">modlfoamplitude</label>
+      <input name="modlfoamplitude2" type="range" min="0" max="100" value = "0" onchange="modlfoamplitude2()" id="Oscmodlfoamplitude2" class="input-knob"><br>
+      <label for="modlfophase2">modlfophase</label>
+      <input name="modlfophase2" type="range" min="0" max="360" value = "0" onchange="modlfophase2()" id="Oscmodlfophase2" class="input-knob"><br>
+    </td>
+  </tr>
+  <tr class = "section"> <!-- Osc 3 row -->
+    <td>
+        <h1> Osc 3 </h1>
+    </td>
+    <td class = "section"> <!-- Osc 3 Basic Controls -->
+        <label for="Volume3">Volume</label>
+        <input name="Volume 3" type = "range" onchange = "Vol3()" id = "OscVol3" value = "100"> <button onclick="Mute3()" type="button" id="MuteBtn3">Mute</button> <br>
+
+        <label for="pan3">Pan   </label>
+        <input name="pan3" type="range" min="-10" max="10" value = "0" onchange="pan3()" id="Oscpan3" class="input-knob"> <br>
+
+        <button onclick="Sin3()" type="button" id ="sin3">Sine</button><br>
+        <button onclick="Square3()" type="button" id ="squ3">Square</button><br>
+        <button onclick="Triangle3()" type="button" id ="tri3">Triangle</button><br>
+        <button onclick="Sawtooth3()" type="button" id ="saw3">Sawtooth</button><br>
+
+        <label for="Detune3">Detune</label>
+        <input name="Detune3" type="range" min="-100"  max="100" value = "0" onchange="Detune3()" id="OscDetune3" class="input-knob"> <br>
+
+        <p class = "FXtitle"> Vibrato </p>
+    
+        <label for="viblfofreq3">VibFreq</label>
+        <input name="viblfofreq3" type="range" min="0" max="100" value = "0" onchange="viblfofreq3()" id="Oscviblfofreq3" class="input-knob">
+        <label for="viblfoamplitude3">VibDepth</label>
+        <input name="viblfoamplitude3" type="range" min="0" max="100" value = "0" onchange="viblfoamplitude3()" id="Oscviblfoamplitude3" class="input-knob"><br>
+        <label for="vibmax3">VibMax</label>
+        <input name="vibmax3" type="range" min="0" max="100" value = "0" onchange="vibmax3()" id="Oscvibmax3" class="input-knob">
+        <label for="vibmin3">VibMin</label>
+        <input name="vibmin3" type="range" min="-100" max="0" value = "-100" onchange="vibmin3()" id="Oscvibmin3" class="input-knob"><br>
+      
+    </td>
+    <td class = "section"> <!-- Osc 3 ADSR-->
+       <h1 style = "font-size: medium;" class = "LFOtitle"> Amplitude Envelope</h1>
+
+        <label for="Attack3">Attack</label>
+        <input name="Attack3" type="range" min="0"  max="200" value = "20" onchange="Attack3()" id="OscAttack3" class="input-knob"> <br>
+        <label for="Decay3">Decay</label>
+        <input name="Decay3" type="range" min="0"  max="200" value = "100" onchange="Decay3()" id="OscDecay3" class="input-knob"> <br>
+        <label for="Sustain3">Sustain</label>
+        <input name="Sustain3" type="range" min="0"  max="100" value = "100"onchange="Sustain3()" id="OscSustain3" class="input-knob"> <br>
+        <label for="Release3">Release</label>
+        <input name="Release3" type="range" min="0"  max="500" value = "200"  onchange="Release3()" id="OscRelease3" class="input-knob"> <br>
+
+        <h1 style = "font-size: medium;" class = "LFOtitle"> Frequency Envelope</h1>
+      
+        <label for="freqenvattack3">freqenvattack</label>
+        <input name="freqenvattack3" type="range" min="0" max="200" value = "20" onchange="freqenvattack3()" id="Oscfreqenvattack3" class="input-knob"><br>
+        <label for="freqenvdecay3">freqenvdecay</label>
+        <input name="freqenvdecay3" type="range" min="0" max="200" value = "100" onchange="freqenvdecay3()" id="Oscfreqenvdecay3" class="input-knob"><br>
+        <label for="freqenvsustain3">freqenvsustain</label>
+        <input name="freqenvsustain3" type="range" min="0" max="100" value = "50" onchange="freqenvsustain3()" id="Oscfreqenvsustain3" class="input-knob"><br>
+        <label for="freqenvrelease3">freqenvrelease</label>
+        <input name="freqenvrelease3" type="range" min="0" max="500" value = "50" onchange="freqenvrelease3()" id="Oscfreqenvrelease3" class="input-knob"><br>
+        <label for="freqenvmax3">envfiltercutoff</label>
+        <input name="freqenvmax3" type="range" min="0" max="20000" value = "20000" onchange="freqenvmax3()" id="Oscfreqenvmax3"><br>
+    </td>
+    <td class = "section"> <!-- Osc 3 Filter-->
+        <label for="filte3CutOff">FilterCutOff</label> 
+        <input name="filter3CutOff" type="range" min="20" max="2000" value = "20" onchange="Filter3CutOff()" id="OscFilterCutOff3"><br>
+
+        <button onclick="HighPass3()" type="button" id = "HP3">HighPass</button> 
+        <button onclick="LowPass3()" type="button" id = "LP3">LowPass</button> <br>
+        <button onclick="BandPass3()" type="button" id = "BP3">BandPass</button>
+        <button onclick="HighShelf3()" type="button" id = "HS3">HighShelf</button> <br>
+        <button onclick="LowShelf3()" type="button" id = "LS3">LowShelf</button>
+        <button onclick="Notch3()" type="button" id = "N3">Notch</button> <br>
+        <button onclick="Bypass3()" type="button" id = "AP3">Bypass</button>
+    </td>
+    <td class = "section"> <!-- Osc 3 LFO --> 
+      <label for="filterlfocutoff3">Filter LFO cutoff</label> 
+      <input name="filterlfocutoff3" type="range" min="0" max="20000" value = "0" onchange="filterlfocutoff3()" id="Oscfilterlfocutoff3"> <br>
+      <label for="lfofreq3">lfofreq</label>
+      <input name="lfofreq3" type="range" min="0" max="100" value = "0" onchange="lfofreq3()" id="Osclfofreq3" class="input-knob"><br>
+      <label for="lfoamplitude3">lfoamplitude</label>
+      <input name="lfoamplitude3" type="range" min="0" max="95" value = "0" onchange="lfoamplitude3()" id="Osclfoamplitude3" class="input-knob"><br>
+      <label for="lfophase3">lfophase</label>
+      <input name="lfophase3" type="range" min="0" max="360" value = "0" onchange="lfophase3()" id="Osclfophase3" class="input-knob"><br>
+
+      <label for="filtermodcutoff3">filtermodcutoff</label>
+      <input name="filtermodcutoff3" type="range" min="0" max="20000" value = "0" onchange="filtermodcutoff3()"   id="Oscfiltermodcutoff3"><br>
+      <label for="modlfofreq3">ModLfoFreq</label>
+      <input name="modlfofreq3" type="range" min="0" max="100" value = "0" onchange="modlfofreq3()" id="Oscmodlfofreq3" class="input-knob"><br>
+      <label for="modlfoamplitude3">modlfoamplitude</label>
+      <input name="modlfoamplitude3" type="range" min="0" max="100" value = "0" onchange="modlfoamplitude3()" id="Oscmodlfoamplitude3" class="input-knob"><br>
+      <label for="modlfophase3">modlfophase</label>
+      <input name="modlfophase3" type="range" min="0" max="360" value = "0" onchange="modlfophase3()" id="Oscmodlfophase3" class="input-knob"><br>
+    </td>
+  </tr>
+  <tr class = "section"> <!-- Piano and octave shift-->
+    <td class = "pianosection">
+      <h1 class = "OCTAVEtitle" >Octave Shift</h1>
+      <button onclick="octaveUp()" type="button" class="octavebutton">Octave Up</button><br> 
+      <p class = "octaveDisplayVis"><span id = "octaveDisplay"></span> </p><br> 
+      <button onclick="octaveDown()" type="button" class="octavebutton">Octave Down</button><br>
+      
+    </td>
+    <td colspan = "3" class = "pianosection">
+      <ul id="piano">
+
+        <li data-note="C3" class="key">
+          <div data-note="C#3" class="black-key">C#3</div>
+          C3
+        </li>
+        <li data-note="D3" class="key">
+          <div data-note="D#3" class="black-key">D#3</div>
+          D3
+        </li>
+        <li data-note="E3" class="key">
+          E
+        </li>
+        <li data-note="F3" class="key">
+          <div data-note="F#3" class="black-key">F#3</div>
+          F
+        </li>
+        <li data-note="G3" class="key">
+          <div data-note="G#3" class="black-key">G#3</div>
+          G3
+        </li>
+        <li data-note="A3" class="key">
+          <div data-note="A#3" class="black-key">A#3</div>
+          A3
+        </li>
+        <li data-note="B3" class="key">
+          B3
+        </li>
+        <li data-note="C4" class="key">
+          <div data-note="C#4" class="black-key">C#4</div>
+          C4
+        </li>
+        <li data-note="D4" class="key">
+          <div data-note="D#4" class="black-key">D#4</div>
+          D4
+        </li>
+        <li data-note="E4" class="key">
+          E4
+        </li>
+        <li data-note="F4" class="key">
+          <div data-note="F#4" class="black-key">F#4</div>
+          F4
+        </li>
+        <li data-note="G4" class="key">
+          <div data-note="G#4" class="black-key">G#4</div>
+          G4
+        </li>
+        <li data-note="A4" class="key">
+          <div data-note="A#4" class="black-key">A#4</div>
+          A4
+        </li>
+        <li data-note="B4" class="key">
+          B4
+        </li>
+      
+      </ul>
+    </td> 
+  </tr> 
+</table>
+
+<p>Accessibilty Cerfication. © 2022 Lucien Willers, Christopher Wainwright, Jack Mcdonagh </p>
+
+<script src="http://unpkg.com/tone" class = "copyright"></script>
+
+<script>
+
+const Node1 = new Tone.Gain();
+const Node2 = new Tone.Gain();
+const Node3 = new Tone.Gain();
+
+//create synth
+const synth1 = new Tone.Synth();
+//create reverb
+const reverb1 = new Tone.Reverb({wet: 0,});
+//declare synth as osc type sin
+synth1.oscillator.type = "sine";
+//create filter
+const filter1 = new Tone.Filter(20000, "lowpass");
+//create filter for lfo 1
+const filterlfo1 = new Tone.Filter(20000, "lowpass");
+const lfo1 = new Tone.LFO({
+  amplitude: 0,
+  min: 100,
+  max: 20000,
+})
+lfo1.connect(filterlfo1.frequency);
+lfo1.start();
+//modulating filter lfo 1
+const filtermod1 = new Tone.Filter(10000, "lowpass");
+const modlfo1 = new Tone.LFO({
+  amplitude: 0,
+  min: 5000,
+  max: 15000,
+})
+modlfo1.connect(filtermod1.frequency);
+modlfo1.start();
+
+//create filter for lfo 2
+const filterlfo2 = new Tone.Filter(20000, "lowpass");
+const lfo2 = new Tone.LFO({
+  amplitude: 0,
+  min: 100,
+  max: 20000,
+})
+lfo2.connect(filterlfo2.frequency);
+lfo2.start();
+//modulating filter lfo 2
+const filtermod2 = new Tone.Filter(10000, "lowpass");
+const modlfo2 = new Tone.LFO({
+  amplitude: 0,
+  min: 5000,
+  max: 15000,
+})
+modlfo2.connect(filtermod2.frequency);
+modlfo2.start();
+
+//create filter for lfo 3
+const filterlfo3 = new Tone.Filter(20000, "lowpass");
+const lfo3 = new Tone.LFO({
+  amplitude: 0,
+  min: 100,
+  max: 20000,
+})
+lfo3.connect(filterlfo3.frequency);
+lfo3.start();
+//modulating filter lfo 3
+const filtermod3 = new Tone.Filter(10000, "lowpass");
+const modlfo3 = new Tone.LFO({
+  amplitude: 0,
+  min: 5000,
+  max: 15000,
+})
+modlfo3.connect(filtermod3.frequency);
+modlfo3.start();
+
+//vibrato lfo
+const viblfo1 = new Tone.LFO({
+  amplitude: 0,
+  min: -50,
+  max: 50,
+});
+
+const viblfo2 = new Tone.LFO({
+  amplitude: 0,
+  min: -50,
+  max: 50,
+});
+
+const viblfo3 = new Tone.LFO({
+  amplitude: 0,
+  min: -50,
+  max: 50,
+});
+
+//viblfo1.connect(synth2.detune);
+//viblfo1.connect(synth3.detune);
+//frequency envelope osc1
+const filterenv1 = new Tone.Filter(10000, "lowpass");
+const freqenv1 = new Tone.Envelope();
+const freqenvscale1 = new Tone.Scale({
+  min: 0,
+  max: 20000,
+});
+setInterval(() => console.log(freqenv1.getValueAtTime(Tone.now())), 100);
+freqenv1.connect(freqenvscale1);
+freqenvscale1.connect(filterenv1.frequency);
+
+//frequency envelope osc2
+const filterenv2 = new Tone.Filter(10000, "lowpass");
+const freqenv2 = new Tone.Envelope();
+const freqenvscale2 = new Tone.Scale({
+  min: 0,
+  max: 20000,
+});
+setInterval(() => console.log(freqenv2.getValueAtTime(Tone.now())), 100);
+freqenv2.connect(freqenvscale2);
+freqenvscale2.connect(filterenv2.frequency);
+
+//frequency envelope osc3
+const filterenv3 = new Tone.Filter(10000, "lowpass");
+const freqenv3 = new Tone.Envelope();
+const freqenvscale3 = new Tone.Scale({
+  min: 0,
+  max: 20000,
+});
+setInterval(() => console.log(freqenv3.getValueAtTime(Tone.now())), 100);
+freqenv3.connect(freqenvscale3);
+freqenvscale3.connect(filterenv3.frequency);
+
+
+//pan
+const panosc1 = new Tone.Panner(0);
+const panosc2 = new Tone.Panner(0);
+const panosc3 = new Tone.Panner(0);
+//create distortion
+const distortion1 = new Tone.Distortion({wet: 0,});
+//create alternate distortion
+const chebyshev1 = new Tone.Chebyshev({wet: 0,});
+//create chorus
+const chorus1 = new Tone.Chorus({wet: 0,}).start();
+//create tremolo
+const tremolo1 = new Tone.Tremolo({wet: 0,}).start();
+//create phaser
+const phaser1 = new Tone.Phaser({wet: 0,});
+//create delay
+const delay1 = new Tone.PingPongDelay({wet: 0,});
+
+//creating synths/oscillators and connecting them to FX and other parameters
+
+synth1.chain(filterenv1, panosc1, filter1, filterlfo1, filtermod1, Node1)
+Node1.connect(distortion1)
+
+const synth2 = new Tone.Synth();
+synth2.oscillator.type = "sine";
+const filter2 = new Tone.Filter();
+filter2.type = "allpass"
+synth2.chain(filterenv2, panosc2, filter2, filterlfo2, filtermod2, Node2);
+Node2.connect(distortion1);
+
+const synth3 = new Tone.Synth();
+synth3.oscillator.type = "sine";
+const filter3 = new Tone.Filter(1500,"allpass");
+synth3.chain(filterenv3, panosc3, filter3, filterlfo3, filtermod3, Node3);
+Node3.connect(distortion1)
+
+distortion1.chain(chebyshev1, chorus1, tremolo1, phaser1, delay1, reverb1)
+reverb1.toDestination(); //chain to master
+
+viblfo1.connect(synth1.detune);
+viblfo1.start();
+
+viblfo2.connect(synth2.detune)
+viblfo2.start();
+
+viblfo3.connect(synth3.detune)
+viblfo3.start();
+
+
+const piano = document.getElementById("piano");
+
+piano.addEventListener("mousedown", e => {
+    console.log("synth1fired");
+  synth1.triggerAttack(e.target.dataset.note);
+});
+
+piano.addEventListener("mousedown", e => {
+    console.log("envfilter1attack");
+  freqenv1.triggerAttack();
+});
+
+piano.addEventListener("mouseup", e=> {
+    console.log("envfilter1release");
+  freqenv1.triggerRelease();
+})
+
+piano.addEventListener("mousedown", e => {
+    console.log("synth2fired");
+  synth2.triggerAttack(e.target.dataset.note);
+});
+
+piano.addEventListener("mousedown", e => {
+    console.log("envfilter2attack");
+  freqenv2.triggerAttack();
+});
+
+piano.addEventListener("mouseup", e=> {
+    console.log("envfilter2release");
+  freqenv2.triggerRelease();
+})
+
+piano.addEventListener("mousedown", e => {
+    console.log("synth3fired");
+  synth3.triggerAttack(e.target.dataset.note);
+});
+
+piano.addEventListener("mousedown", e => {
+    console.log("envfilter3attack");
+  freqenv3.triggerAttack();
+});
+
+piano.addEventListener("mouseup", e=> {
+    console.log("envfilter3release");
+  freqenv3.triggerRelease();
+})
+
+piano.addEventListener("mouseup", e => {
+  synth1.triggerRelease();
+});
+
+piano.addEventListener("mouseup", e => {
+  synth2.triggerRelease();
+});
+
+piano.addEventListener("mouseup", e => {
+  synth3.triggerRelease();
+});
+
+function pan1(){
+  x = document.getElementById("Oscpan1").value;
+  x = x/10
+  panosc1.set({
+    pan: x,
+  });
+}
+
+function pan2(){
+  x = document.getElementById("Oscpan2").value;
+  x = x/10
+  panosc2.set({
+    pan: x,
+  });
+}
+
+function pan3(){
+  x = document.getElementById("Oscpan3").value;
+  x = x/10
+  panosc3.set({
+    pan: x,
+  });
+}
+
+//frequency envelope osc1
+function freqenvattack1(){
+  x = document.getElementById("Oscfreqenvattack1").value;
+  x= x/100
+  freqenv1.set({
+    attack: x,
+  });
+}
+
+function freqenvdecay1(){
+  x = document.getElementById("Oscfreqenvdecay1").value;
+  x= x/100
+  freqenv1.set({
+    decay: x,
+  });
+}
+
+function freqenvsustain1(){
+  x = document.getElementById("Oscfreqenvsustain1").value;
+  x= x/100
+  freqenv1.set({
+    sustain: x,
+  });
+}
+
+function freqenvrelease1(){
+  x = document.getElementById("Oscfreqenvrelease1").value;
+  x= x/100
+  freqenv1.set({
+    release: x,
+  });
+}
+
+function freqenvmax1(){
+  x = document.getElementById("Oscfreqenvmax1").value;
+  freqenvscale1.set({
+    max: x,
+  });
+}
+
+//frequency envelope osc2
+
+function freqenvattack2(){
+  x = document.getElementById("Oscfreqenvattack2").value;
+  x= x/100
+  freqenv2.set({
+    attack: x,
+  });
+}
+
+function freqenvdecay2(){
+  x = document.getElementById("Oscfreqenvdecay2").value;
+  x= x/100
+  freqenv2.set({
+    decay: x,
+  });
+}
+
+function freqenvsustain2(){
+  x = document.getElementById("Oscfreqenvsustain2").value;
+  x= x/100
+  freqenv2.set({
+    sustain: x,
+  });
+}
+
+function freqenvrelease2(){
+  x = document.getElementById("Oscfreqenvrelease2").value;
+  x= x/100
+  freqenv2.set({
+    release: x,
+  });
+}
+
+function freqenvmax2(){
+  x = document.getElementById("Oscfreqenvmax2").value;
+  freqenvscale2.set({
+    max: x,
+  });
+}
+
+//frequency envelope osc3
+
+function freqenvattack3(){
+  x = document.getElementById("Oscfreqenvattack3").value;
+  x= x/100
+  freqenv3.set({
+    attack: x,
+  });
+}
+
+function freqenvdecay3(){
+  x = document.getElementById("Oscfreqenvdecay3").value;
+  x= x/100
+  freqenv3.set({
+    decay: x,
+  });
+}
+
+function freqenvsustain3(){
+  x = document.getElementById("Oscfreqenvsustain3").value;
+  x= x/100
+  freqenv3.set({
+    sustain: x,
+  });
+}
+
+function freqenvrelease3(){
+  x = document.getElementById("Oscfreqenvrelease3").value;
+  x= x/100
+  freqenv3.set({
+    release: x,
+  });
+}
+
+function freqenvmax3(){
+  x = document.getElementById("Oscfreqenvmax3").value;
+  freqenvscale3.set({
+    max: x,
+  });
+}
+//lfo 1
+function lfofreq1(){
+  x = document.getElementById("Osclfofreq1").value;
+  x = x/10
+  lfo1.set({
+    frequency: x,
+  });
+}
+
+function filterlfocutoff1(){
+  y = document.getElementById("Oscfilterlfocutoff1").value;
+  lfo1.set({
+    max: y,
+  });
+}
+
+function lfoamplitude1(){
+  x = document.getElementById("Osclfoamplitude1").value;
+  x = x/100
+  lfo1.set({
+    amplitude: x,
+  });
+}
+
+function lfophase1(){
+  x = document.getElementById("Osclfophase1").value;
+  lfo1.set({
+    phase: x,
+  });
+}
+
+function filtermodcutoff1(){
+  x = document.getElementById("Oscfiltermodcutoff1").value;
+  y = x*1.5
+  z = x*0.5
+  filtermod1.set({
+    frequency: x,
+  })
+  modlfo1.set({
+    max: y,
+    min: z,
+  })
+}
+
+function modlfofreq1(){
+  x = document.getElementById("Oscmodlfofreq1").value;
+  x = x/10
+  modlfo1.set({
+    frequency: x,
+  });
+}
+
+function modlfoamplitude1(){
+  x = document.getElementById("Oscmodlfoamplitude1").value;
+  x = x/100
+  modlfo1.set({
+    amplitude: x,
+  });
+}
+
+function modlfophase1(){
+  x = document.getElementById("Oscmodlfophase1").value;
+  modlfo1.set({
+    phase: x,
+  });
+}
+
+//lfo2
+function lfofreq2(){
+  x = document.getElementById("Osclfofreq2").value;
+  x = x/10
+  lfo2.set({
+    frequency: x,
+  });
+}
+
+function filterlfocutoff2(){
+  y = document.getElementById("Oscfilterlfocutoff2").value;
+  lfo2.set({
+    max: y,
+  });
+}
+
+function lfoamplitude2(){
+  x = document.getElementById("Osclfoamplitude2").value;
+  x = x/100
+  lfo2.set({
+    amplitude: x,
+  });
+}
+
+function lfophase2(){
+  x = document.getElementById("Osclfophase2").value;
+  lfo2.set({
+    phase: x,
+  });
+}
+
+function filtermodcutoff2(){
+  x = document.getElementById("Oscfiltermodcutoff2").value;
+  y = x*1.5
+  z = x*0.5
+  filtermod2.set({
+    frequency: x,
+  })
+  modlfo2.set({
+    max: y,
+    min: z,
+  })
+}
+
+function modlfofreq2(){
+  x = document.getElementById("Oscmodlfofreq2").value;
+  x = x/10
+  modlfo2.set({
+    frequency: x,
+  });
+}
+
+function modlfoamplitude2(){
+  x = document.getElementById("Oscmodlfoamplitude2").value;
+  x = x/100
+  modlfo2.set({
+    amplitude: x,
+  });
+}
+
+function modlfophase2(){
+  x = document.getElementById("Oscmodlfophase2").value;
+  modlfo2.set({
+    phase: x,
+  });
+}
+
+//lfo 3
+function lfofreq3(){
+  x = document.getElementById("Osclfofreq3").value;
+  x = x/10
+  lfo3.set({
+    frequency: x,
+  });
+}
+
+function filterlfocutoff3(){
+  y = document.getElementById("Oscfilterlfocutoff3").value;
+  lfo3.set({
+    max: y,
+  });
+}
+
+function lfoamplitude3(){
+  x = document.getElementById("Osclfoamplitude3").value;
+  x = x/100
+  lfo3.set({
+    amplitude: x,
+  });
+}
+
+function lfophase3(){
+  x = document.getElementById("Osclfophase3").value;
+  lfo3.set({
+    phase: x,
+  });
+}
+
+function filtermodcutoff3(){
+  x = document.getElementById("Oscfiltermodcutoff3").value;
+  y = x*1.5
+  z = x*0.5
+  filtermod3.set({
+    frequency: x,
+  })
+  modlfo3.set({
+    max: y,
+    min: z,
+  })
+}
+
+function modlfofreq3(){
+  x = document.getElementById("Oscmodlfofreq3").value;
+  x = x/10
+  modlfo3.set({
+    frequency: x,
+  });
+}
+
+function modlfoamplitude3(){
+  x = document.getElementById("Oscmodlfoamplitude3").value;
+  x = x/100
+  modlfo3.set({
+    amplitude: x,
+  });
+}
+
+function modlfophase3(){
+  x = document.getElementById("Oscmodlfophase3").value;
+  modlfo3.set({
+    phase: x,
+  });
+}
+
+//tremelo
+function TremoloDepth1(){
+  x = document.getElementById("OscTremoloDepth1").value;
+  x = x/100
+  tremolo1.set({
+    depth: x,
+  });
+}
+
+function TremoloFreq1(){
+  x = document.getElementById("OscTremoloFreq1").value;
+  x = x/10
+  tremolo1.set({
+    frequency: x,
+  });
+}
+
+function TremoloWet1(){
+  if (BypassTremolo == 0){
+    x = document.getElementById("OscTremoloWet1").value;
+    x = x/100
+    tremolo1.set({
+      wet: x,
+   });
+}
+}
+//chorus
+function ChorusFreq1(){
+  x = document.getElementById("OscChorusFreq1").value;
+  x = x/10
+  chorus1.set({
+    frequency: x,
+  });
+}
+
+function ChorusDelay1(){
+  x = document.getElementById("OscChorusDelay1").value;
+  chorus1.set({
+    delay: x,
+  });
+}
+
+function ChorusDepth1(){
+  x = document.getElementById("OscChorusDepth1").value;
+  x= x/100;
+  chorus1.set({
+    depth: x,
+  });
+}
+
+function ChorusWet1(){
+  if (BypassChorus == 0){
+  x = document.getElementById("OscChorusWet1").value;
+  x= x/100
+  chorus1.set({
+    wet: x,
+  });
+}
+}
+
+function ChorusFeedback1(){
+  x = document.getElementById("OscChorusFeedback1").value;
+  x = x/100
+  chorus1.set({
+    feedback: x,
+  });
+}
+
+function ChorusSpread1(){
+  x = document.getElementById("OscChorusSpread1").value;
+  chorus1.set({
+    spread: x,
+  });
+}
+
+//phaser
+function PhaserFreq1(){
+  x = document.getElementById("OscPhaserFreq1").value;
+  x = x/10
+  phaser1.set({
+    frequency: x,
+  });
+}
+
+function PhaserRange1(){
+  x = document.getElementById("OscPhaserRange1").value;
+  phaser1.set({
+    octaves: x,
+  });
+}
+
+function PhaserBaseFreq1(){
+  x = document.getElementById("OscPhaserBaseFreq1").value;
+  phaser1.set({
+    baseFrequency: x,
+  });
+}
+
+function PhaserWet1(){
+  if (BypassPhaser == 0){
+  x = document.getElementById("OscPhaserWet1").value;
+  x = x/100
+  phaser1.set({
+    wet: x,
+  });
+}
+}
+
+//Distortion 
+function Distortion1(){
+  x = document.getElementById("OscDistortion1").value;
+  x = x/100
+  distortion1.set({
+    distortion: x,
+  });
+}
+
+function DistortionWet1(){
+  if (BypassDistortion == 0){
+  x = document.getElementById("OscDistortionWet1").value;
+  x = x/100
+  distortion1.set({
+    wet: x,
+  });
+}
+}
+
+//Chebyshev
+function ChebyshevOrder1(){
+  x = document.getElementById("OscChebyshevOrder1").value;
+  chebyshev1.set({
+    order: x,
+  });
+}
+
+function ChebyshevWet1(){
+  if (BypassChebyshev == 0){
+  x = document.getElementById("OscChebyshevWet1").value;
+  x = x/100
+  chebyshev1.set({
+    wet: x,
+  });
+}
+}
+
+//Reverb
+function ReverbDecay1(){
+  x = document.getElementById("OscReverbDecay1").value;
+  x = x/100
+  reverb1.set({
+    decay: x,
+  });
+}
+
+function ReverbWet1(){
+  if (BypassReverb == 0){
+  x = document.getElementById("OscReverbWet1").value;
+  x= x/100
+  reverb1.set({
+    wet: x,
+  });
+}
+}
+
+//Delay
+function DelayTime1(){
+  x = document.getElementById("OscDelayTime1").value;
+  x = x/100
+  delay1.set({
+    delayTime: x,
+  });
+}
+
+function DelayFeedback1(){
+  x = document.getElementById("OscDelayFeedback1").value;
+  x = x/100
+  delay1.set({
+    feedback: x,
+  });
+}
+
+function DelayWet1(){
+  if (BypassDelay == 0){
+  x = document.getElementById("OscDelayWet1").value;
+  x = x/100
+  delay1.set({
+    wet: x,
+  });
+}
+}
+//vibrato 
+function viblfofreq1(){
+  x = document.getElementById("Oscviblfofreq1").value;
+  x = x/10
+  viblfo1.set({
+    frequency: x,
+  });
+}
+
+function viblfoamplitude1(){
+  x = document.getElementById("Oscviblfoamplitude1").value;
+  x = x/100
+  y = document.getElementById("Oscvibmax1").value;
+  z = document.getElementById("Oscvibmin1").value;
+  a = document.getElementById("OscDetune1").value;
+  b = a+y
+  c = a+z
+  viblfo1.set({
+    amplitude: x,
+    max: b,
+    min: c, 
+  });
+  synth1.set({
+    detune: a,
+  });
+
+}
+
+function vibmax1(){
+  x = document.getElementById("Oscvibmax1").value;
+  viblfo1.set({
+    max: x,
+  })
+}
+
+function vibmin1(){
+  x = document.getElementById("Oscvibmin1").value;
+  viblfo1.set({
+    min: x,
+  })
+}
+
+//vibrato 2
+function viblfofreq2(){
+  x = document.getElementById("Oscviblfofreq2").value;
+  x = x/10
+  viblfo2.set({
+    frequency: x,
+  });
+}
+
+function viblfoamplitude2(){
+  x = document.getElementById("Oscviblfoamplitude2").value;
+  x = x/100
+  y = document.getElementById("Oscvibmax2").value;
+  z = document.getElementById("Oscvibmin2").value;
+  a = document.getElementById("OscDetune2").value;
+  b = a+y
+  c = a+z
+  viblfo2.set({
+    amplitude: x,
+    max: b,
+    min: c, 
+  });
+  synth2.set({
+    detune: a,
+  });
+
+}
+
+function vibmax2(){
+  x = document.getElementById("Oscvibmax2").value;
+  viblfo2.set({
+    max: x,
+  })
+}
+
+function vibmin2(){
+  x = document.getElementById("Oscvibmin2").value;
+  viblfo2.set({
+    min: x,
+  })
+}
+//vibrato3
+function viblfofreq3(){
+  x = document.getElementById("Oscviblfofreq3").value;
+  x = x/10
+  viblfo3.set({
+    frequency: x,
+  });
+}
+
+function viblfoamplitude3(){
+  x = document.getElementById("Oscviblfoamplitude3").value;
+  x = x/100
+  y = document.getElementById("Oscvibmax3").value;
+  z = document.getElementById("Oscvibmin3").value;
+  a = document.getElementById("OscDetune3").value;
+  b = a+y
+  c = a+z
+  viblfo3.set({
+    amplitude: x,
+    max: b,
+    min: c, 
+  });
+  synth3.set({
+    detune: a,
+  });
+
+}
+
+function vibmax3(){
+  x = document.getElementById("Oscvibmax3").value;
+  viblfo3.set({
+    max: x,
+  })
+}
+
+function vibmin3(){
+  x = document.getElementById("Oscvibmin3").value;
+  viblfo3.set({
+    min: x,
+  })
+}
+
+//Detune Control
+function Detune1(){
+  y = document.getElementById("Oscvibmax1").value;
+  z = document.getElementById("Oscvibmin1").value;
+  a = document.getElementById("OscDetune1").value;
+  b = a+y
+  c = a+z
+  synth1.set({
+    detune: x,
+  });
+}
+
+//Detune Control
+function Detune2(){
+  //retrieve value from fader
+  x = document.getElementById("OscDetune2").value;
+  //sets detune value as x
+  synth2.set({
+    detune: x,
+  });
+}
+
+//Detune Control
+function Detune3(){
+  //retrieve value from fader
+  x = document.getElementById("OscDetune3").value;
+  //sets detune value as x
+  synth3.set({
+    detune: x,
+  });
+}
+
+//volume control
+function Vol1(){
+  if(MuteX == 0){
+//retrieve value from range (fader)  
+    let x = document.getElementById("OscVol1").value;
+//convert value to scale of 0 - 1
+    x = x/100;
+//output to gain 
+    Node1.gain.value = x;
+    console.log(Node1.gain.value)
+  }
+}
+//ADSR functions
+
+function Attack1(){
+    let x = document.getElementById("OscAttack1").value;
+    x = x/100,
+    synth1.envelope.attack = x;
+    console.log(x);
+
+};
+
+function Decay1(){
+    let x = document.getElementById("OscDecay1").value;
+    x = x/100,
+    synth1.envelope.decay = x;
+    console.log(x);
+
+};
+
+function Sustain1(){
+    let x = document.getElementById("OscSustain1").value;
+    x = x/100,
+    synth1.envelope.sustain = x;
+    console.log(x);
+
+};
+
+function Release1(){
+    let x = document.getElementById("OscRelease1").value;
+    x = x/100,
+    synth1.envelope.release = x;
+    console.log(x);
+
+};
+
+function Attack2(){
+    let x = document.getElementById("OscAttack2").value;
+    x = x/100,
+    synth2.envelope.attack = x;
+    console.log(x);
+
+};
+
+function Decay2(){
+    let x = document.getElementById("OscDecay2").value;
+    x = x/100,
+    synth2.envelope.decay = x;
+    console.log(x);
+
+};
+
+function Sustain2(){
+    let x = document.getElementById("OscSustain2").value;
+    x = x/100,
+    synth2.envelope.sustain = x;
+    console.log(x);
+
+};
+
+function Release2(){
+    let x = document.getElementById("OscRelease2").value;
+    x = x/100,
+    synth2.envelope.release = x;
+    console.log(x);
+
+};
+
+function Attack3(){
+    let x = document.getElementById("OscAttack3").value;
+    x = x/100,
+    synth3.envelope.attack = x;
+    console.log(x);
+
+};
+
+function Decay3(){
+    let x = document.getElementById("OscDecay3").value;
+    x = x/100,
+    synth3.envelope.decay = x;
+    console.log(x);
+
+};
+
+function Sustain3(){
+    let x = document.getElementById("OscSustain3").value;
+    x = x/100,
+    synth3.envelope.sustain = x;
+    console.log(x);
+
+};
+
+function Release3(){
+    let x = document.getElementById("OscRelease3").value;
+    x = x/100,
+    synth3.envelope.release = x;
+    console.log(x);
+
+};
+
+//mute function
+//declare Mute Variable as on or off
+let MuteX=0;
+function Mute1(){
+//using an if statement as a toggled switch
+if (MuteX == 0){
+  //setting gain for synth to 0
+  Node1.gain.value = 0;
+  MuteX=1;
+  console.log(Node1.gain.value);
+  console.log(MuteX);
+  document.getElementById("MuteBtn1").style.backgroundColor = "red";
+  //if button not toggled set value to 1
+} else if (MuteX == 1){
+  retrievedValueX = document.getElementById("OscVol1").value;
+  retrievedValueX = retrievedValueX/100;
+  Node1.gain.value = retrievedValueX;
+  //
+  MuteX=0;
+  console.log(MuteX);
+  document.getElementById("MuteBtn1").style.backgroundColor = "white";
+}
+}
+
+//bypass
+
+document.getElementById("OscDistortion1Bypass").style.backgroundColor = "red";
+let BypassDistortion=1; //setting FX to off on initialisation 
+function Distortion1Bypass(){
+if (BypassDistortion == 0){
+  distortion1.wet.value = 0;
+  BypassDistortion=1;
+  document.getElementById("OscDistortion1Bypass").style.backgroundColor = "red";
+  console.log("distortion bypassed");
+} else if (BypassDistortion == 1){
+  BypassDistortion= 0;
+  document.getElementById("OscDistortion1Bypass").style.backgroundColor = "white";
+  console.log("distortion on");
+  DistortionWet1();
+}
+}
+
+document.getElementById("BypassChebyshevBtn").style.backgroundColor = "red";
+let BypassChebyshev=1;
+function ChebyshevBypass(){
+if (BypassChebyshev == 0){
+  chebyshev1.wet.value = 0;
+  BypassChebyshev=1;
+  document.getElementById("BypassChebyshevBtn").style.backgroundColor = "red";
+  console.log("Chebyshev bypassed");
+} else if (BypassChebyshev == 1){
+  BypassChebyshev= 0;
+  document.getElementById("BypassChebyshevBtn").style.backgroundColor = "white";
+  console.log("Chebyshev on");
+  ChebyshevWet1();
+}
+}
+
+document.getElementById("BypassChorusBtn").style.backgroundColor = "red";
+let BypassChorus=1;
+function ChorusBypass(){
+if (BypassChorus == 0){
+  chorus1.wet.value = 0;
+  BypassChorus=1;
+  document.getElementById("BypassChorusBtn").style.backgroundColor = "red";
+  console.log("Chorus bypassed");
+} else if (BypassChorus == 1){
+  BypassChorus= 0;
+  document.getElementById("BypassChorusBtn").style.backgroundColor = "white";
+  console.log("Chorus on");
+  ChorusWet1();
+}
+}
+
+document.getElementById("BypassTremoloBtn").style.backgroundColor = "red";
+let BypassTremolo=1;
+function TremoloBypass(){
+if (BypassTremolo == 0){
+  tremolo1.wet.value = 0;
+  BypassTremolo=1;
+  document.getElementById("BypassTremoloBtn").style.backgroundColor = "red";
+  console.log("Tremolo bypassed");
+} else if (BypassTremolo == 1){
+  BypassTremolo= 0;
+  document.getElementById("BypassTremoloBtn").style.backgroundColor = "white";
+  console.log("Tremolo on");
+  TremoloWet1();
+}
+}
+
+document.getElementById("BypassPhaserBtn").style.backgroundColor = "red";
+let BypassPhaser=1;
+function PhaserBypass(){
+if (BypassPhaser == 0){
+  phaser1.wet.value = 0;
+  BypassPhaser=1;
+  document.getElementById("BypassPhaserBtn").style.backgroundColor = "red";
+  console.log("Phaser bypassed");
+} else if (BypassPhaser == 1){
+  BypassPhaser= 0;
+  document.getElementById("BypassPhaserBtn").style.backgroundColor = "white";
+  console.log("Phaser on");
+  PhaserWet1();
+}
+}
+
+document.getElementById("BypassDelayBtn").style.backgroundColor = "red";
+let BypassDelay=1;
+function DelayBypass(){
+if (BypassDelay == 0){
+  delay1.wet.value = 0;
+  BypassDelay=1;
+  document.getElementById("BypassDelayBtn").style.backgroundColor = "red";
+  console.log("Delay bypassed");
+} else if (BypassDelay == 1){
+  BypassDelay= 0;
+  document.getElementById("BypassDelayBtn").style.backgroundColor = "white";
+  console.log("Delay on");
+  DelayWet1();
+}
+}
+
+document.getElementById("BypassReverbBtn").style.backgroundColor = "red";
+let BypassReverb=1;
+function ReverbBypass(){
+if (BypassReverb == 0){
+  reverb1.wet.value = 0;
+  BypassReverb=1;
+  document.getElementById("BypassReverbBtn").style.backgroundColor = "red";
+  console.log("Reverb bypassed");
+} else if (BypassReverb == 1){
+  BypassReverb= 0;
+  document.getElementById("BypassReverbBtn").style.backgroundColor = "white";
+  console.log("Reverb on");
+  ReverbWet1();
+}
+}
+
+//filter cutoff
+function Filter1CutOff(){
+  let x = document.getElementById("OscFilterCutOff1").value;
+  filter1.frequency.value = x;
+}
+
+function Filter2CutOff(){
+  let x = document.getElementById("OscFilterCutOff2").value;
+  filter1.frequency.value = x;
+}
+
+function Filter3CutOff(){
+  let x = document.getElementById("OscFilterCutOff3").value;
+  filter1.frequency.value = x;
+}
+//<button onclick="HighPass3()" type="button" id = "HP3">HighPass3</button> 
+       // <button onclick="LowPass3()" type="button" id = "LP3">LowPass3</button> <br>
+        //<button onclick="BandPass3()" type="button" id = "BP3">BandPass3</button>
+        //<button onclick="HighShelf3()" type="button" id = "HS3">HighShelf3</button> <br>
+        //<button onclick="LowShelf3()" type="button" id = "LS3">LowShelf3</button>
+       // <button onclick="Notch3()" type="button" id = "N3">Notch3</button> <br>
+       // <button onclick="Bypass3()" type="button" id = "B3">Bypass3</button>
+
+//filter options osc 1
+function HighPass1(){
+  filter1.type= 'highpass'
+  document.getElementById("HP1").style.backgroundColor = "green"
+  document.getElementById("LP1").style.backgroundColor = "white"
+  document.getElementById("BP1").style.backgroundColor = "white"
+  document.getElementById("HS1").style.backgroundColor = "white"
+  document.getElementById("LS1").style.backgroundColor = "white"
+  document.getElementById("N1").style.backgroundColor = "white"
+  document.getElementById("AP1").style.backgroundColor = "white"
+
+} 
+
+function LowPass1(){
+  filter1.type= 'lowpass'
+  document.getElementById("HP1").style.backgroundColor = "white"
+  document.getElementById("LP1").style.backgroundColor = "green"
+  document.getElementById("BP1").style.backgroundColor = "white"
+  document.getElementById("HS1").style.backgroundColor = "white"
+  document.getElementById("LS1").style.backgroundColor = "white"
+  document.getElementById("N1").style.backgroundColor = "white"
+  document.getElementById("AP1").style.backgroundColor = "white"
+}
+
+function BandPass1(){
+  filter1.type= 'bandpass'
+  document.getElementById("HP1").style.backgroundColor = "white"
+  document.getElementById("LP1").style.backgroundColor = "white"
+  document.getElementById("BP1").style.backgroundColor = "green"
+  document.getElementById("HS1").style.backgroundColor = "white"
+  document.getElementById("LS1").style.backgroundColor = "white"
+  document.getElementById("N1").style.backgroundColor = "white"
+  document.getElementById("AP1").style.backgroundColor = "white"
+}
+
+function HighShelf1(){
+  filter1.type= 'highshelf'
+  document.getElementById("HP1").style.backgroundColor = "white"
+  document.getElementById("LP1").style.backgroundColor = "white"
+  document.getElementById("BP1").style.backgroundColor = "white"
+  document.getElementById("HS1").style.backgroundColor = "green"
+  document.getElementById("LS1").style.backgroundColor = "white"
+  document.getElementById("N1").style.backgroundColor = "white"
+  document.getElementById("AP1").style.backgroundColor = "white"
+}
+
+function LowShelf1(){
+  filter1.type= 'lowshelf'
+  document.getElementById("HP1").style.backgroundColor = "white"
+  document.getElementById("LP1").style.backgroundColor = "white"
+  document.getElementById("BP1").style.backgroundColor = "white"
+  document.getElementById("HS1").style.backgroundColor = "white"
+  document.getElementById("LS1").style.backgroundColor = "green"
+  document.getElementById("N1").style.backgroundColor = "white"
+  document.getElementById("AP1").style.backgroundColor = "white"
+}
+
+function Notch1(){
+  filter1.type= 'notch'
+  document.getElementById("HP1").style.backgroundColor = "white"
+  document.getElementById("LP1").style.backgroundColor = "white"
+  document.getElementById("BP1").style.backgroundColor = "white"
+  document.getElementById("HS1").style.backgroundColor = "white"
+  document.getElementById("LS1").style.backgroundColor = "white"
+  document.getElementById("N1").style.backgroundColor = "green"
+  document.getElementById("AP1").style.backgroundColor = "white"
+}
+
+function Bypass1(){
+  filter1.type= 'allpass'
+  document.getElementById("HP1").style.backgroundColor = "white"
+  document.getElementById("LP1").style.backgroundColor = "white"
+  document.getElementById("BP1").style.backgroundColor = "white"
+  document.getElementById("HS1").style.backgroundColor = "white"
+  document.getElementById("LS1").style.backgroundColor = "white"
+  document.getElementById("N1").style.backgroundColor = "white"
+  document.getElementById("AP1").style.backgroundColor = "red"
+}
+//filter options osc 2
+function HighPass2(){
+  filter2.type= 'highpass'
+  document.getElementById("HP2").style.backgroundColor = "green"
+  document.getElementById("LP2").style.backgroundColor = "white"
+  document.getElementById("BP2").style.backgroundColor = "white"
+  document.getElementById("HS2").style.backgroundColor = "white"
+  document.getElementById("LS2").style.backgroundColor = "white"
+  document.getElementById("N2").style.backgroundColor = "white"
+  document.getElementById("AP2").style.backgroundColor = "white"
+}
+
+function LowPass2(){
+  filter2.type= 'lowpass'
+  document.getElementById("HP2").style.backgroundColor = "white"
+  document.getElementById("LP2").style.backgroundColor = "green"
+  document.getElementById("BP2").style.backgroundColor = "white"
+  document.getElementById("HS2").style.backgroundColor = "white"
+  document.getElementById("LS2").style.backgroundColor = "white"
+  document.getElementById("N2").style.backgroundColor = "white"
+  document.getElementById("AP2").style.backgroundColor = "white"
+}
+
+function BandPass2(){
+  filter2.type= 'bandpass'
+  document.getElementById("HP2").style.backgroundColor = "white"
+  document.getElementById("LP2").style.backgroundColor = "white"
+  document.getElementById("BP2").style.backgroundColor = "green"
+  document.getElementById("HS2").style.backgroundColor = "white"
+  document.getElementById("LS2").style.backgroundColor = "white"
+  document.getElementById("N2").style.backgroundColor = "white"
+  document.getElementById("AP2").style.backgroundColor = "white"
+}
+
+function HighShelf2(){
+  filter2.type= 'highshelf'
+  document.getElementById("HP2").style.backgroundColor = "white"
+  document.getElementById("LP2").style.backgroundColor = "white"
+  document.getElementById("BP2").style.backgroundColor = "white"
+  document.getElementById("HS2").style.backgroundColor = "green"
+  document.getElementById("LS2").style.backgroundColor = "white"
+  document.getElementById("N2").style.backgroundColor = "white"
+  document.getElementById("AP2").style.backgroundColor = "white"
+}
+
+function LowShelf2(){
+  filter2.type= 'lowshelf'
+  document.getElementById("HP2").style.backgroundColor = "white"
+  document.getElementById("LP2").style.backgroundColor = "white"
+  document.getElementById("BP2").style.backgroundColor = "white"
+  document.getElementById("HS2").style.backgroundColor = "white"
+  document.getElementById("LS2").style.backgroundColor = "green"
+  document.getElementById("N2").style.backgroundColor = "white"
+  document.getElementById("AP2").style.backgroundColor = "white"
+}
+
+function Notch2(){
+  filter2.type= 'notch'
+  document.getElementById("HP2").style.backgroundColor = "white"
+  document.getElementById("LP2").style.backgroundColor = "white"
+  document.getElementById("BP2").style.backgroundColor = "white"
+  document.getElementById("HS2").style.backgroundColor = "white"
+  document.getElementById("LS2").style.backgroundColor = "white"
+  document.getElementById("N2").style.backgroundColor = "green"
+  document.getElementById("AP2").style.backgroundColor = "white"
+}
+
+function Bypass2(){
+  filter2.type= 'allpass'
+  document.getElementById("HP2").style.backgroundColor = "white"
+  document.getElementById("LP2").style.backgroundColor = "white"
+  document.getElementById("BP2").style.backgroundColor = "white"
+  document.getElementById("HS2").style.backgroundColor = "white"
+  document.getElementById("LS2").style.backgroundColor = "white"
+  document.getElementById("N2").style.backgroundColor = "white"
+  document.getElementById("AP2").style.backgroundColor = "red"
+}
+
+//filter options osc 3
+function HighPass3(){
+  filter3.type= 'highpass'
+  document.getElementById("HP3").style.backgroundColor = "green"
+  document.getElementById("LP3").style.backgroundColor = "white"
+  document.getElementById("BP3").style.backgroundColor = "white"
+  document.getElementById("HS3").style.backgroundColor = "white"
+  document.getElementById("LS3").style.backgroundColor = "white"
+  document.getElementById("N3").style.backgroundColor = "white"
+  document.getElementById("AP3").style.backgroundColor = "white"
+}
+
+function LowPass3(){
+  filter3.type= 'lowpass'
+  document.getElementById("HP3").style.backgroundColor = "white"
+  document.getElementById("LP3").style.backgroundColor = "green"
+  document.getElementById("BP3").style.backgroundColor = "white"
+  document.getElementById("HS3").style.backgroundColor = "white"
+  document.getElementById("LS3").style.backgroundColor = "white"
+  document.getElementById("N3").style.backgroundColor = "white"
+  document.getElementById("AP3").style.backgroundColor = "white"
+  
+}
+
+function BandPass3(){
+  filter3.type= 'bandpass'
+  document.getElementById("HP3").style.backgroundColor = "white"
+  document.getElementById("LP3").style.backgroundColor = "white"
+  document.getElementById("BP3").style.backgroundColor = "green"
+  document.getElementById("HS3").style.backgroundColor = "white"
+  document.getElementById("LS3").style.backgroundColor = "white"
+  document.getElementById("N3").style.backgroundColor = "white"
+  document.getElementById("AP3").style.backgroundColor = "white"
+}
+
+function HighShelf3(){
+  filter3.type= 'highshelf'
+  document.getElementById("HP3").style.backgroundColor = "white"
+  document.getElementById("LP3").style.backgroundColor = "white"
+  document.getElementById("BP3").style.backgroundColor = "white"
+  document.getElementById("HS3").style.backgroundColor = "green"
+  document.getElementById("LS3").style.backgroundColor = "white"
+  document.getElementById("N3").style.backgroundColor = "white"
+  document.getElementById("AP3").style.backgroundColor = "white"
+}
+
+function LowShelf3(){
+  filter3.type= 'lowshelf'
+  document.getElementById("HP3").style.backgroundColor = "white"
+  document.getElementById("LP3").style.backgroundColor = "white"
+  document.getElementById("BP3").style.backgroundColor = "white"
+  document.getElementById("HS3").style.backgroundColor = "white"
+  document.getElementById("LS3").style.backgroundColor = "green"
+  document.getElementById("N3").style.backgroundColor = "white"
+  document.getElementById("AP3").style.backgroundColor = "white"
+}
+
+function Notch3(){
+  filter3.type= 'notch'
+  document.getElementById("HP3").style.backgroundColor = "white"
+  document.getElementById("LP3").style.backgroundColor = "white"
+  document.getElementById("BP3").style.backgroundColor = "white"
+  document.getElementById("HS3").style.backgroundColor = "white"
+  document.getElementById("LS3").style.backgroundColor = "white"
+  document.getElementById("N3").style.backgroundColor = "green"
+  document.getElementById("AP3").style.backgroundColor = "white"
+}
+
+function Bypass3(){
+  filter3.type= 'allpass'
+  document.getElementById("HP3").style.backgroundColor = "white"
+  document.getElementById("LP3").style.backgroundColor = "white"
+  document.getElementById("BP3").style.backgroundColor = "white"
+  document.getElementById("HS3").style.backgroundColor = "white"
+  document.getElementById("LS3").style.backgroundColor = "white"
+  document.getElementById("N3").style.backgroundColor = "white"
+  document.getElementById("AP3").style.backgroundColor = "red"
+}
+
+//osc 1 volume and waveform select
+function Sin1(){
+synth1.oscillator.type= 'sine';
+console.log(synth1);
+document.getElementById("sin1").style.backgroundColor = "green"
+document.getElementById("squ1").style.backgroundColor = "white"
+document.getElementById("tri1").style.backgroundColor = "white"
+document.getElementById("saw1").style.backgroundColor = "white"
+}
+function Square1(){
+synth1.oscillator.type= 'square';
+console.log(synth1);
+document.getElementById("sin1").style.backgroundColor = "white"
+document.getElementById("squ1").style.backgroundColor = "green"
+document.getElementById("tri1").style.backgroundColor = "white"
+document.getElementById("saw1").style.backgroundColor = "white"
+}
+function Triangle1(){
+synth1.oscillator.type= 'triangle';
+console.log(synth1);
+document.getElementById("sin1").style.backgroundColor = "white"
+document.getElementById("squ1").style.backgroundColor = "white"
+document.getElementById("tri1").style.backgroundColor = "green"
+document.getElementById("saw1").style.backgroundColor = "white"
+}
+function Sawtooth1(){
+synth1.oscillator.type= 'sawtooth';
+console.log(synth1);
+document.getElementById("sin1").style.backgroundColor = "white"
+document.getElementById("squ1").style.backgroundColor = "white"
+document.getElementById("tri1").style.backgroundColor = "white"
+document.getElementById("saw1").style.backgroundColor = "green"
+}
+//osc 2 volume and waveform select
+function Vol2(){
+  if (MuteY == 0){
+    let x = document.getElementById("OscVol2").value;
+    x = x/100;
+    Node2.gain.value = x;
+  }
+}
+function Sin2(){
+synth2.oscillator.type= 'sine';
+console.log(synth2);
+document.getElementById("sin2").style.backgroundColor = "green"
+document.getElementById("squ2").style.backgroundColor = "white"
+document.getElementById("tri2").style.backgroundColor = "white"
+document.getElementById("saw2").style.backgroundColor = "white"
+
+}
+function Square2(){
+synth2.oscillator.type= 'square';
+console.log(synth2);
+document.getElementById("sin2").style.backgroundColor = "white"
+document.getElementById("squ2").style.backgroundColor = "green"
+document.getElementById("tri2").style.backgroundColor = "white"
+document.getElementById("saw2").style.backgroundColor = "white"
+}
+function Triangle2(){
+synth2.oscillator.type= 'triangle';
+console.log(synth2);
+document.getElementById("sin2").style.backgroundColor = "white"
+document.getElementById("squ2").style.backgroundColor = "white"
+document.getElementById("tri2").style.backgroundColor = "green"
+document.getElementById("saw2").style.backgroundColor = "white"
+}
+function Sawtooth2(){
+synth2.oscillator.type= 'sawtooth';
+console.log(synth2)
+document.getElementById("sin2").style.backgroundColor = "white"
+document.getElementById("squ2").style.backgroundColor = "white"
+document.getElementById("tri2").style.backgroundColor = "white"
+document.getElementById("saw2").style.backgroundColor = "green"
+}
+
+//mute osc 2
+let MuteY=0;
+function Mute2(){
+if (MuteY == 0){
+  Node2.gain.value = 0;
+  MuteY=1;
+  console.log(MuteY);
+  document.getElementById("MuteBtn2").style.backgroundColor = "red";
+} else if (MuteY == 1){
+  retrievedValueY = document.getElementById("OscVol2").value;
+  retrievedValueY = retrievedValueY/100; 
+  Node2.gain.value = retrievedValueY;
+  MuteY=0;
+  console.log(MuteY);
+  document.getElementById("MuteBtn2").style.backgroundColor = "white";
+}
+}
+
+//osc 3 volume and waveform select
+function Vol3(){
+    if (MuteZ == 0){
+      let x = document.getElementById("OscVol3").value;
+      x = x/100;
+      Node3.gain.value = x;
+    }
+}
+function Sin3(){
+synth3.oscillator.type= 'sine';
+console.log(synth3);
+document.getElementById("sin3").style.backgroundColor = "green"
+document.getElementById("squ3").style.backgroundColor = "white"
+document.getElementById("tri3").style.backgroundColor = "white"
+document.getElementById("saw3").style.backgroundColor = "white"
+}
+function Square3(){
+synth3.oscillator.type= 'square';
+console.log(synth3);
+document.getElementById("sin3").style.backgroundColor = "white"
+document.getElementById("squ3").style.backgroundColor = "green"
+document.getElementById("tri3").style.backgroundColor = "white"
+document.getElementById("saw3").style.backgroundColor = "white"
+}
+function Triangle3(){
+synth3.oscillator.type= 'triangle';
+console.log(synth3);
+document.getElementById("sin3").style.backgroundColor = "white"
+document.getElementById("squ3").style.backgroundColor = "white"
+document.getElementById("tri3").style.backgroundColor = "green"
+document.getElementById("saw3").style.backgroundColor = "white"
+}
+function Sawtooth3(){
+synth3.oscillator.type= 'sawtooth';
+console.log(synth3);
+document.getElementById("sin3").style.backgroundColor = "white"
+document.getElementById("squ3").style.backgroundColor = "white"
+document.getElementById("tri3").style.backgroundColor = "white"
+document.getElementById("saw3").style.backgroundColor = "green"
+}
+
+//mute osc 3
+let MuteZ=0;
+function Mute3(){
+if (MuteZ == 0){
+  Node3.gain.value = 0;
+  MuteZ=1;
+  console.log(MuteZ);
+  document.getElementById("MuteBtn3").style.backgroundColor = "red";
+} else if (MuteZ == 1){
+  retrievedValueZ = document.getElementById("OscVol3").value;
+  retrievedValueZ = retrievedValueZ/100; 
+  Node3.gain.value = retrievedValueZ;
+  MuteZ=0;
+  console.log(MuteZ);
+  document.getElementById("MuteBtn3").style.backgroundColor = "white";
+}
+}
+
+//octave shift 
+var currentOctave = 0;
+document.getElementById("octaveDisplay").innerHTML = currentOctave;
+
+const datanotes = document.querySelectorAll('[data-note]');
+const notesUp2 = ["C5", "C#5", "D5", "D#5" ,"E5","F5", "F#5", "G5", "G#5", "A5", "A#5", "B5", "C6", "C#6", "D6", "D#6","E6","F6", "F#6", "G6", "G#6", "A6", "A#6", "B6"];
+const notesUp1 = ["C4", "C#4", "D4", "D#4" ,"E4","F4", "F#4", "G4", "G#4", "A4", "A#4", "B4", "C5", "C#5", "D5", "D#5","E5","F5", "F#5", "G5", "G#5", "A5", "A#5", "B5"];
+const notesNormal = ["C3", "C#3", "D3", "D#3" ,"E3","F3", "F#3", "G3", "G#3", "A3", "A#3", "B3", "C4", "C#4", "D4", "D#4","E4","F4", "F#4", "G4", "G#4", "A4", "A#4", "B4"];
+const notesDown1 = ["C2", "C#2", "D2", "D#2","E2","F2", "F#2", "G2", "G#2", "A2", "A#2", "B2", "C3", "C#3", "D3", "D#3","E3","F3", "F#3", "G3", "G#3", "A3", "A#3", "B3"];
+const notesDown2 = ["C1", "C#1", "D1", "D#1","E1","F1", "F#1", "G1", "G#1", "A1", "A#1", "B1", "C2", "C#2", "D2", "D#2","E2","F2", "F#2", "G2", "G#2", "A2", "A#2", "B2"];
+console.log(notesDown1);
+
+function octaveDown(){
+  if (currentOctave > -2){
+    currentOctave = currentOctave - 1;
+    if (currentOctave == 2){ 
+      octaveShiftUp2();
+    }
+    if (currentOctave == 1){ 
+      octaveShiftUp1();
+    }
+    if (currentOctave == 0){ 
+      octaveNormal();
+    }
+    if (currentOctave == -1){ 
+      octaveShiftDown1();
+    }
+    if (currentOctave == -2){
+      octaveShiftDown2();
+    }
+    document.getElementById("octaveDisplay").innerHTML = currentOctave;
+    console.log(currentOctave);
+  }
+}
+
+function octaveUp(){
+  if (currentOctave < 2){
+    currentOctave = currentOctave + 1;
+    if (currentOctave == 2){ 
+      octaveShiftUp2();
+    }
+    if (currentOctave == 1){ 
+      octaveShiftUp1();
+    }
+    if (currentOctave == 0){ 
+      octaveNormal();
+    }
+    if (currentOctave == -1){ 
+      octaveShiftDown1();
+    }
+    if (currentOctave == -2){
+      octaveShiftDown2();
+    }
+    console.log(currentOctave);
+    document.getElementById("octaveDisplay").innerHTML = currentOctave;
+  }
+}
+
+function octaveShiftUp2(){
+  let i = 0;
+  datanotes.forEach(function(datanote){
+    datanote.setAttribute("data-note",notesUp2[i]);
+    i++;
+  });
+};
+
+function octaveShiftUp1(){
+  let i = 0;
+  datanotes.forEach(function(datanote){
+    datanote.setAttribute("data-note",notesUp1[i]);
+    i++;
+  });
+};
+
+function octaveNormal(){
+  let i = 0;
+  datanotes.forEach(function(datanote){
+    datanote.setAttribute("data-note",notesNormal[i]);
+    i++;
+  });
+};
+
+function octaveShiftDown1(){
+  let i = 0;
+  datanotes.forEach(function(datanote){
+    datanote.setAttribute("data-note",notesDown1[i]);
+    i++;
+  });
+};
+
+function octaveShiftDown2(){
+  let i = 0;
+  datanotes.forEach(function(datanote){
+    datanote.setAttribute("data-note",notesDown2[i]);
+    i++;
+  });
+};
+
+</script>
+
+</body>
